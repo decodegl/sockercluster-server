@@ -30,7 +30,7 @@ jobs:
       uses: docker/build-push-action@v2
       with:
         push: true
-        tags: ghcr.io/${{ github.repository_owner }}/sockercluster-server:${{ github.sha }}
-
+        tags: ghcr.io/decodegl/sockercluster-server:latest
+    
     - name: Verify Image
       run: echo "The Docker image was built and pushed to GHCR!"
