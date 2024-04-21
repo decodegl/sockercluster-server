@@ -10,6 +10,7 @@ COPY . .
 
 RUN npm install
 
+ENV ENV=prod
 EXPOSE 8000
 
 CMD ["npm", "run", "start:docker"]

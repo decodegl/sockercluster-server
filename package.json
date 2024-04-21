@@ -1,7 +1,7 @@
 {
   "name": "socketcluster-server",
   "description": "A sample SocketCluster app",
-  "version": "1.0.0",
+  "version": "19.0.1",
   "contributors": [
     {
       "name": "Jonathan Gros-Dubois",
@@ -39,7 +39,8 @@
     "start": "node server.js",
     "start:watch": "npx nodemon server.js",
     "start:docker": "npx nodemon server.js",
-    "build:image": "docker build -t username/myapp:${npm_package_version} .",
-    "publish:image": "docker push username/myapp:${npm_package_version}"
+    "docker:login": "echo $GHCR_TOKEN | docker login ghcr.io -u USERNAME --password-stdin",
+    "build": "docker build -t ghcr.io/decodegl/sockercluster-server:${npm_package_version} .",
+    "publish": "docker push ghcr.io/decodegl/sockercluster-server:${npm_package_version}"
   }
 }
