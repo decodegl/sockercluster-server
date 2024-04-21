@@ -40,7 +40,7 @@
     "start:watch": "npx nodemon server.js",
     "start:docker": "npx nodemon server.js",
     "docker:login": "echo $GHCR_TOKEN | docker login ghcr.io -u USERNAME --password-stdin",
-    "build": "docker build -t ghcr.io/decodegl/sockercluster-server:${npm_package_version} .",
-    "publish": "docker push ghcr.io/decodegl/sockercluster-server:${npm_package_version}"
+    "build": "docker build -t ghcr.io/decodegl/sockercluster-server:latest .",
+    "publish": "docker push ghcr.io/decodegl/sockercluster-server:latest"
   }
 }
