@@ -1,0 +1,6 @@
+version: '3.8'
+services:
+  sockercluster-server:
+    image: ghcr.io/decodegl/sockercluster-server:latest
+    ports:
+      - "8123:8000"
