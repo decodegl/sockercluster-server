@@ -14,19 +14,7 @@ jobs:
 
     steps:
     - name: Check out the repo
-      uses: actions/checkout@v3
-
-    - name: Install GitHub CLI
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y gh
-
-    - name: Test GitHub Token permissions
-      run: |
-        gh auth setup-git
-        gh repo view
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: actions/checkout@v4
 
     - name: Log in to GitHub Container Registry
       uses: docker/login-action@v3
@@ -43,6 +31,8 @@ jobs:
       with:
         push: true
         tags: ghcr.io/decodegl/sockercluster-server:latest
+        labels: |
+          org.opencontainers.image.source=https://github.com/decodegl/sockercluster-server
 
     - name: Verify Image
       run: echo "The Docker image was built and pushed to GHCR!"
