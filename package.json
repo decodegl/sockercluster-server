@@ -1,26 +1,31 @@
 {
-  "name": "socketcluster-sample",
+  "name": "socketcluster-server",
   "description": "A sample SocketCluster app",
   "version": "1.0.0",
   "contributors": [
     {
       "name": "Jonathan Gros-Dubois",
       "email": "grosjona@yahoo.com.au"
+    },
+    {
+      "name": "Kirell Benzi",
+      "email": "kirell.benzi@epfl.ch"
     }
   ],
   "dependencies": {
-    "connect": "^3.6.6",
-    "eetase": "^4.0.0",
-    "express": "^4.16.3",
+    "connect": "^3.7.0",
+    "eetase": "^7.0.1",
+    "express": "^4.19.2",
     "install": "^0.13.0",
-    "morgan": "^1.7.0",
-    "nodemon": "^2.0.7",
-    "sc-errors": "^2.0.1",
-    "scc-broker-client": "^8.2.0",
-    "serve-static": "^1.13.2",
-    "socketcluster-client": "^17.0.1",
-    "socketcluster-server": "^17.1.0",
-    "uuid": "^8.3.2"
+    "minify": "^11.1.1",
+    "morgan": "^1.10.0",
+    "nodemon": "^3.1.0",
+    "sc-errors": "^2.0.3",
+    "scc-broker-client": "^9.2.0",
+    "serve-static": "^1.15.0",
+    "socketcluster-client": "^19.1.2",
+    "socketcluster-server": "^19.0.1",
+    "uuid": "^9.0.1"
   },
   "keywords": [
     "websocket",
@@ -32,7 +37,9 @@
   "readmeFilename": "README.md",
   "scripts": {
     "start": "node server.js",
-    "start:watch": "./node_modules/nodemon/bin/nodemon.js server.js",
-    "start:docker": "./node_modules/nodemon/bin/nodemon.js /usr/src/app/server.js"
+    "start:watch": "npx nodemon server.js",
+    "start:docker": "npx nodemon server.js",
+    "build:image": "docker build -t username/myapp:${npm_package_version} .",
+    "publish:image": "docker push username/myapp:${npm_package_version}"
   }
 }
